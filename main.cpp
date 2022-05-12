@@ -106,7 +106,7 @@ int main(int argc, char * argv[]) {
     duration = duration_cast<seconds>(stop - start);
 
     // Print duration of reference method 3
-    cout << "duration reference method 3: " << duration.count() << endl;
+    cout << "duration reference method 3: " << duration.count() << " (s)" << endl;
 
     // Verify computation custom Gauss-Jordan method
     mat_mult_sq(mat_store, mat_inv, n, mat_prod);
