@@ -21,7 +21,7 @@ using namespace std::chrono;
 int main(int argc, char * argv[]) {
 
     // Size input matrix
-    int n = 5;
+    int n = 3000;
 
     // Allocate space for matrices
     double ** mat = mat2D(n);
@@ -108,19 +108,19 @@ int main(int argc, char * argv[]) {
     // Print duration of reference method 3
     cout << "duration reference method 3: " << duration.count() << endl;
 
-    // Verify computation custom Gauss-Jordan method
-    mat_mult_sq(mat_store, mat_inv, n, mat_prod);
+//    // Verify computation custom Gauss-Jordan method
+//    mat_mult_sq(mat_store, mat_inv, n, mat_prod);
 
     // Print results
-    print_mat(mat_prod, n);
-
-    print_mat(mat_inv, n);
-
-    print(std::cout, mat1_inv);
-
-    showMatrix(mat2_inv, "reference solution", false);
-
-    print_matxd(mat3_inv, n);
+//    print_mat(mat_prod, n);
+//
+//    print_mat(mat_inv, n);
+//
+//    print(std::cout, mat1_inv);
+//
+//    showMatrix(mat2_inv, "reference solution", false);
+//
+//    print_matxd(mat3_inv, n);
 
     // Free allocated space
     free_mat2D(mat, n);

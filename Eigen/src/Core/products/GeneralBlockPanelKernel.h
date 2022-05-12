@@ -1162,25 +1162,25 @@ struct last_row_process_16_packets<LhsScalar, RhsScalar, Index, DataMapper,  mr,
 
     if (depth - endk > 0)
       {
-	// We have to handle the last row(s) of the rhs, which
-	// correspond to a half-packet
-	SAccPacketQuarter c0 = predux_half_dowto4(predux_half_dowto4(C0));
+    // We have to handle the last row(s) of the rhs, which
+    // correspond to a half-packet
+    SAccPacketQuarter c0 = predux_half_dowto4(predux_half_dowto4(C0));
 
-	for (Index kk = endk; kk < depth; kk++)
-	  {
-	    SLhsPacketQuarter a0;
-	    SRhsPacketQuarter b0;
-	    straits.loadLhsUnaligned(blB, a0);
-	    straits.loadRhs(blA, b0);
-	    straits.madd(a0,b0,c0,b0, fix<0>);
-	    blB += SwappedTraits::LhsProgress/4;
-	    blA += 1;
-	  }
-	straits.acc(c0, alphav, R);
+    for (Index kk = endk; kk < depth; kk++)
+      {
+        SLhsPacketQuarter a0;
+        SRhsPacketQuarter b0;
+        straits.loadLhsUnaligned(blB, a0);
+        straits.loadRhs(blA, b0);
+        straits.madd(a0,b0,c0,b0, fix<0>);
+        blB += SwappedTraits::LhsProgress/4;
+        blA += 1;
+      }
+    straits.acc(c0, alphav, R);
       }
     else
       {
-	straits.acc(predux_half_dowto4(predux_half_dowto4(C0)), alphav, R);
+    straits.acc(predux_half_dowto4(predux_half_dowto4(C0)), alphav, R);
       }
     res.scatterPacket(i, j2, R);
   }
@@ -1337,15 +1337,15 @@ struct lhs_process_one_packet
           RhsPacket B_0;
 
 #define EIGEN_GEBGP_ONESTEP(K)                                          \
-	      do {                                                      \
-		EIGEN_ASM_COMMENT("begin step of gebp micro kernel 1/half/quarterX1"); \
-		EIGEN_ASM_COMMENT("Note: these asm comments work around bug 935!"); \
+          do {                                                      \
+        EIGEN_ASM_COMMENT("begin step of gebp micro kernel 1/half/quarterX1"); \
+        EIGEN_ASM_COMMENT("Note: these asm comments work around bug 935!"); \
     /* FIXME: why unaligned???? */ \
-		traits.loadLhsUnaligned(&blA[(0+1*K)*LhsProgress], A0); \
-		traits.loadRhs(&blB[(0+K)*RhsProgress], B_0);		\
-		traits.madd(A0, B_0, C0, B_0, fix<0>);				\
-		EIGEN_ASM_COMMENT("end step of gebp micro kernel 1/half/quarterX1"); \
-	      } while(false);
+        traits.loadLhsUnaligned(&blA[(0+1*K)*LhsProgress], A0); \
+        traits.loadRhs(&blB[(0+K)*RhsProgress], B_0);        \
+        traits.madd(A0, B_0, C0, B_0, fix<0>);                \
+        EIGEN_ASM_COMMENT("end step of gebp micro kernel 1/half/quarterX1"); \
+          } while(false);
 
           EIGEN_GEBGP_ONESTEP(0);
           EIGEN_GEBGP_ONESTEP(1);
@@ -2006,7 +2006,7 @@ void gebp_kernel<LhsScalar,RhsScalar,Index,DataMapper,mr,nr,ConjugateLhs,Conjuga
               // template form, so that LhsProgress < 16 paths don't
               // fail to compile
               last_row_process_16_packets<LhsScalar, RhsScalar, Index, DataMapper, mr, nr, ConjugateLhs, ConjugateRhs> p;
-	            p(res, straits, blA, blB, depth, endk, i, j2,alpha, C0);
+                p(res, straits, blA, blB, depth, endk, i, j2,alpha, C0);
             }
             else
             {
@@ -2305,7 +2305,7 @@ EIGEN_DONT_INLINE void gemm_pack_lhs<Scalar, Index, DataMapper, Pack1, Pack2, Pa
               for (int p = 0; p < psize; ++p) kernel_quarter.packet[p] = lhs.template loadPacket<QuarterPacket>(i+p+m, k);
               ptranspose(kernel_quarter);
               for (int p = 0; p < psize; ++p) pstore(blockA+count+m+(pack)*p, cj.pconj(kernel_quarter.packet[p]));
-	    }
+        }
           }
           count += psize*pack;
         }
@@ -2506,7 +2506,7 @@ struct gemm_pack_rhs<Scalar, Index, DataMapper, nr, RowMajor, Conjugate, PanelMo
   typedef typename DataMapper::LinearMapper LinearMapper;
   enum { PacketSize = packet_traits<Scalar>::size,
          HalfPacketSize = unpacket_traits<HalfPacket>::size,
-		 QuarterPacketSize = unpacket_traits<QuarterPacket>::size};
+         QuarterPacketSize = unpacket_traits<QuarterPacket>::size};
   EIGEN_DONT_INLINE void operator()(Scalar* blockB, const DataMapper& rhs, Index depth, Index cols, Index stride=0, Index offset=0)
   {
     EIGEN_ASM_COMMENT("EIGEN PRODUCT PACK RHS ROWMAJOR");

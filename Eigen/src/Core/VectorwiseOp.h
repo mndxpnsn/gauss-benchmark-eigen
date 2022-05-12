@@ -298,10 +298,10 @@ template<typename ExpressionType, int Direction> class VectorwiseOp
       * \sa rend(), crbegin()
       */
     reverse_iterator        rbegin()       { return reverse_iterator       (m_matrix, m_matrix.template subVectors<DirectionType(Direction)>()-1); }
-	/** const version of rbegin() */
+    /** const version of rbegin() */
     const_reverse_iterator  rbegin() const { return const_reverse_iterator (m_matrix, m_matrix.template subVectors<DirectionType(Direction)>()-1); }
-	/** const version of rbegin() */
-	const_reverse_iterator crbegin() const { return const_reverse_iterator (m_matrix, m_matrix.template subVectors<DirectionType(Direction)>()-1); }
+    /** const version of rbegin() */
+    const_reverse_iterator crbegin() const { return const_reverse_iterator (m_matrix, m_matrix.template subVectors<DirectionType(Direction)>()-1); }
 
     /** returns an iterator to the row (resp. column) following the last row (resp. column) of the nested expression
       * \sa begin(), cend()

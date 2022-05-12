@@ -1515,7 +1515,7 @@ template<typename Packet> EIGEN_STRONG_INLINE __UNPACK_TYPE__(Packet) predux_siz
   Packet4i fourth_quarter = pload<Packet4i>(fourth_loader);
 
   return static_cast<__UNPACK_TYPE__(Packet)>(predux(first_quarter) + predux(second_quarter)
-		                  + predux(third_quarter) + predux(fourth_quarter));
+                          + predux(third_quarter) + predux(fourth_quarter));
 }
 
 template<> EIGEN_STRONG_INLINE signed char predux<Packet16c>(const Packet16c& a)
