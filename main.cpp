@@ -26,7 +26,6 @@ int main(int argc, char * argv[]) {
     // Allocate space for matrices
     double ** mat = mat2D(n);
     double ** mat_inv = mat2D(n);
-    double ** mat_inv_ref = mat2D(n);
     double ** mat_prod = mat2D(n);
     double ** mat_store = mat2D(n);
     matrix mat1(n, n);
@@ -125,7 +124,6 @@ int main(int argc, char * argv[]) {
     // Free allocated space
     free_mat2D(mat, n);
     free_mat2D(mat_inv, n);
-    free_mat2D(mat_inv_ref, n);
     free_mat2D(mat_prod, n);
     free_mat2D(mat_store, n);
 

@@ -1,11 +1,4 @@
 /*
- * lib_testing.cpp
- *
- *  Created on: May 9, 2022
- *      Author: d-w-h
- */
-
-/*
 MIT License
 
 Copyright (c) 2021 FerryYoungFan
