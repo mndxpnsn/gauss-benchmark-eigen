@@ -115,9 +115,9 @@ int main(int argc, char * argv[]) {
 
     print_mat(mat_inv, n);
 
-    print(std::cout, mat1_inv);
+    print(cout, mat1_inv);
 
-    showMatrix(mat2_inv, "reference solution", false);
+    showMatrix(mat2_inv, "reference solution MIT", false);
 
     print_matxd(mat3_inv, n);
 
