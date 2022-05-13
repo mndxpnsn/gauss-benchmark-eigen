@@ -41,7 +41,7 @@ int main(int argc, char * argv[]) {
     // Populate reference matrix mat2 with mat data
     init_vec2D(mat, n, mat2);
 
-    // Populate reference 3 matrix
+    // Populate reference matrix mat3 with mat data
     set_mat_to_matxd(mat, n, mat3);
 
     // Store initial matrix mat
@@ -62,49 +62,49 @@ int main(int argc, char * argv[]) {
     // Print duration custom Gauss-Jordan method
     cout << "duration custom Guass-Jordan: " << duration.count() << " (s)" << endl;
 
-    // Time reference method 1
+    // Time reference method 1, Rosetta Code
     start = high_resolution_clock::now();
 
-    // Compute inverse using reference method 1
+    // Compute inverse using reference method 1, Rosetta Code
     auto mat1_inv = inverse(mat1);
 
-    // Get stop time reference method 1
+    // Get stop time reference method 1, Rosetta Code
     stop = high_resolution_clock::now();
 
-    // Get duration reference method 1
+    // Get duration reference method 1, Rosetta Code
     duration = duration_cast<seconds>(stop - start);
 
-    // Print duration reference method 1
+    // Print duration reference method 1, Rosetta Code
     cout << "duration reference method 1: " << duration.count() << " (s)" << endl;
 
-    // Time reference method 2
+    // Time reference method 2, MIT
     start = high_resolution_clock::now();
 
-    // Compute inverse using reference method 2
+    // Compute inverse using reference method 2, MIT
     i_real_matrix mat2_inv = inv_ref(mat2, true);
 
-    // Get stop time reference method 2
+    // Get stop time reference method 2, MIT
     stop = high_resolution_clock::now();
 
-    // Get duration reference method 2
+    // Get duration reference method 2, MIT
     duration = duration_cast<seconds>(stop - start);
 
-    // Print duration of reference method 2
+    // Print duration of reference method 2, MIT
     cout << "duration reference method 2: " << duration.count() << " (s)" << endl;
 
-    // Time reference method 3
+    // Time reference method 3, Eigen
     start = high_resolution_clock::now();
 
-    // Compute inverse using reference method 3
+    // Compute inverse using reference method 3, Eigen
     MatrixXd mat3_inv = mat3.inverse();
 
-    // Get stop time reference method 3
+    // Get stop time reference method 3, Eigen
     stop = high_resolution_clock::now();
 
-    // Get duration reference method 3
+    // Get duration reference method 3, Eigen
     duration = duration_cast<seconds>(stop - start);
 
-    // Print duration of reference method 3
+    // Print duration of reference method 3, Eigen
     cout << "duration reference method 3: " << duration.count() << " (s)" << endl;
 
     // Verify computation custom Gauss-Jordan method
