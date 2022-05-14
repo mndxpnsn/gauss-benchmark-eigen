@@ -6,17 +6,17 @@
 //
 
 #include <chrono>
+
 #include "Eigen/LU"
-
-using namespace std;
-using namespace std::chrono;
-
 #include "lib_gauss.hpp"
 #include "lib_mat.hpp"
 #include "lib_mem.hpp"
 #include "lib_testing.hpp"
 #include "lib_testing_ref.hpp"
 #include "user_types.hpp"
+
+using namespace std;
+using namespace std::chrono;
 
 int main(int argc, char * argv[]) {
 
