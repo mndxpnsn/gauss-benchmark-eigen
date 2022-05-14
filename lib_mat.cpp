@@ -38,7 +38,7 @@ void init_mat(int n, double ** mat) {
     }
 }
 
-void init_vec2D(double ** mat, int n, i_real_matrix & mat_inv) {
+void set_mat_to_vec2D(double ** mat, int n, i_real_matrix & mat_inv) {
     for(int i = 0; i < n; ++i) {
         i_real_vector vec_loc;
         for(int j = 0; j < n; ++j) {

@@ -13,7 +13,7 @@
 #include "user_types.hpp"
 
 void init_mat(int n, double ** mat);
-void init_vec2D(double ** mat, int n, i_real_matrix & mat_inv);
+void set_mat_to_vec2D(double ** mat, int n, i_real_matrix & mat_inv);
 void set_mat_to_matrix(double ** mat, int n, matrix & m);
 void set_mat_to_matxd(double ** mat, int n, MatrixXd & mat_out);
 void set_mat(double ** mat, int n, double ** mat_store);

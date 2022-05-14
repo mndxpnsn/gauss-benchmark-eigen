@@ -39,7 +39,7 @@ int main(int argc, char * argv[]) {
     set_mat_to_matrix(mat, n, mat1);
 
     // Populate reference matrix mat2 with mat data
-    init_vec2D(mat, n, mat2);
+    set_mat_to_vec2D(mat, n, mat2);
 
     // Populate reference matrix mat3 with mat data
     set_mat_to_matxd(mat, n, mat3);
